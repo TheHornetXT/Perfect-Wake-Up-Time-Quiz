@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Wake-Up Time Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Perfect Wake-Up Time Quiz</h1>
+    
+    <div class="intro">
+        <p>Find your ideal wake-up time based on your sleep patterns, lifestyle, and morning habits. Answer the questions below to receive a personalized recommendation.</p>
+    </div>
+
+    <div class="quiz-container">
+        <div class="progress-container">
+            <div class="progress-text">
+                <span>Progress</span>
+                <span id="progress-status">Question 1 of 17</span>
+            </div>
+            <progress id="quiz-progress" value="1" max="17"></progress>
+        </div>
+
+        <form id="quiz-form">
+            <div class="question-container">
+                <!-- Sleep Pattern Questions -->
+                <div class="section-title" id="section-1">Sleep Patterns</div>
+                
+                <div class="question" id="q1">
+                    <h3>How many hours of sleep do you typically need to feel rested?</h3>
+                    <div class="options">
+                        <input type="range" id="sleep-hours" name="sleep-hours" min="4" max="12" value="8" step="0.5">
+                        <div class="range-value"><span id="sleep-hours-value">8</span> hours</div>
+                    </div>
+                </div>
+
+                <div class="question" id="q2">
+                    <h3>Do you feel drowsy or tired during the day?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="drowsy-1" name="drowsy" value="4">
+                            <label for="drowsy-1">Almost always</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="drowsy-2" name="drowsy" value="3">
+                            <label for="drowsy-2">Often</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="drowsy-3" name="drowsy" value="2">
+                            <label for="drowsy-3">Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="drowsy-4" name="drowsy" value="1">
+                            <label for="drowsy-4">Rarely</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="drowsy-5" name="drowsy" value="0">
+                            <label for="drowsy-5">Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q3">
+                    <h3>Do you rely on caffeine or other stimulants to stay awake?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="caffeine-1" name="caffeine" value="4">
+                            <label for="caffeine-1">Multiple times throughout the day</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="caffeine-2" name="caffeine" value="3">
+                            <label for="caffeine-2">Once or twice daily</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="caffeine-3" name="caffeine" value="2">
+                            <label for="caffeine-3">Only in the morning</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="caffeine-4" name="caffeine" value="1">
+                            <label for="caffeine-4">Occasionally</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="caffeine-5" name="caffeine" value="0">
+                            <label for="caffeine-5">Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q4">
+                    <h3>Do you have trouble falling asleep or staying asleep?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="trouble-1" name="trouble-sleeping" value="4">
+                            <label for="trouble-1">Always</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="trouble-2" name="trouble-sleeping" value="3">
+                            <label for="trouble-2">Often</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="trouble-3" name="trouble-sleeping" value="2">
+                            <label for="trouble-3">Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="trouble-4" name="trouble-sleeping" value="1">
+                            <label for="trouble-4">Rarely</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="trouble-5" name="trouble-sleeping" value="0">
+                            <label for="trouble-5">Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q5">
+                    <h3>Do you wake up feeling groggy or unrefreshed?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="groggy-1" name="groggy" value="4">
+                            <label for="groggy-1">Almost always</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="groggy-2" name="groggy" value="3">
+                            <label for="groggy-2">Often</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="groggy-3" name="groggy" value="2">
+                            <label for="groggy-3">Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="groggy-4" name="groggy" value="1">
+                            <label for="groggy-4">Rarely</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="groggy-5" name="groggy" value="0">
+                            <label for="groggy-5">Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q6">
+                    <h3>What time do you naturally feel most alert and energetic?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="alert-1" name="alert-time" value="early-morning">
+                            <label for="alert-1">Early morning (5am-8am)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alert-2" name="alert-time" value="mid-morning">
+                            <label for="alert-2">Mid-morning (8am-11am)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alert-3" name="alert-time" value="afternoon">
+                            <label for="alert-3">Afternoon (11am-3pm)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alert-4" name="alert-time" value="evening">
+                            <label for="alert-4">Evening (3pm-8pm)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alert-5" name="alert-time" value="night">
+                            <label for="alert-5">Night (8pm-12am)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alert-6" name="alert-time" value="late-night">
+                            <label for="alert-6">Late night/early morning (12am-5am)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q7">
+                    <h3>What time do you feel most tired and sleepy?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="sleepy-1" name="sleepy-time" value="early-evening">
+                            <label for="sleepy-1">Early evening (6pm-9pm)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="sleepy-2" name="sleepy-time" value="mid-evening">
+                            <label for="sleepy-2">Mid-evening (9pm-11pm)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="sleepy-3" name="sleepy-time" value="night">
+                            <label for="sleepy-3">Night (11pm-1am)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="sleepy-4" name="sleepy-time" value="late-night">
+                            <label for="sleepy-4">Late night (1am-3am)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="sleepy-5" name="sleepy-time" value="early-morning">
+                            <label for="sleepy-5">Early morning (3am-6am)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lifestyle Questions -->
+                <div class="section-title" id="section-2">Lifestyle</div>
+
+                <div class="question" id="q8">
+                    <h3>What time do you need to wake up for work, school, or other commitments?</h3>
+                    <div class="options">
+                        <input type="time" id="commitment-time" name="commitment-time" value="07:00">
+                    </div>
+                </div>
+
+                <div class="question" id="q9">
+                    <h3>Do you have a morning routine that requires a certain amount of time?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="routine-1" name="morning-routine" value="yes" checked>
+                            <label for="routine-1">Yes</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="routine-2" name="morning-routine" value="no">
+                            <label for="routine-2">No</label>
+                        </div>
+                    </div>
+                    <div id="routine-follow-up">
+                        <p>How much time does your morning routine need?</p>
+                        <input type="number" id="routine-time" name="routine-time" min="0" max="240" value="60"> minutes
+                    </div>
+                </div>
+
+                <div class="question" id="q10">
+                    <h3>Do you have any physical or mental stressors that might affect your sleep?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="stressors-1" name="stressors" value="4">
+                            <label for="stressors-1">Severe impact on sleep</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="stressors-2" name="stressors" value="3">
+                            <label for="stressors-2">Moderate impact</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="stressors-3" name="stressors" value="2">
+                            <label for="stressors-3">Some impact</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="stressors-4" name="stressors" value="1">
+                            <label for="stressors-4">Minimal impact</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="stressors-5" name="stressors" value="0">
+                            <label for="stressors-5">No impact</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q11">
+                    <h3>Do you work a shift schedule or have irregular hours?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="schedule-1" name="schedule" value="rotating">
+                            <label for="schedule-1">Rotating shifts (different times each week)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="schedule-2" name="schedule" value="nights">
+                            <label for="schedule-2">Night shifts</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="schedule-3" name="schedule" value="irregular">
+                            <label for="schedule-3">Irregular hours</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="schedule-4" name="schedule" value="regular">
+                            <label for="schedule-4">Regular daytime hours</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q12">
+                    <h3>Do you have a regular bedtime and wake-up time?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="regular-1" name="regular-schedule" value="yes-both">
+                            <label for="regular-1">Yes, both bedtime and wake-up time are consistent</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="regular-2" name="regular-schedule" value="bedtime-only">
+                            <label for="regular-2">Only bedtime is consistent</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="regular-3" name="regular-schedule" value="wakeup-only">
+                            <label for="regular-3">Only wake-up time is consistent</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="regular-4" name="regular-schedule" value="no">
+                            <label for="regular-4">Neither is consistent</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Morning Experience Questions -->
+                <div class="section-title" id="section-3">Morning Experience</div>
+
+                <div class="question" id="q13">
+                    <h3>How do you feel after waking up at your current wake-up time?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="current-feeling-1" name="current-feeling" value="very-refreshed">
+                            <label for="current-feeling-1">Very refreshed and energetic</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="current-feeling-2" name="current-feeling" value="somewhat-refreshed">
+                            <label for="current-feeling-2">Somewhat refreshed</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="current-feeling-3" name="current-feeling" value="neutral">
+                            <label for="current-feeling-3">Neutral - neither refreshed nor tired</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="current-feeling-4" name="current-feeling" value="somewhat-tired">
+                            <label for="current-feeling-4">Somewhat tired or groggy</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="current-feeling-5" name="current-feeling" value="very-tired">
+                            <label for="current-feeling-5">Very tired and groggy</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q14">
+                    <h3>How long does it take you to feel fully awake after waking up?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="wake-time-1" name="time-to-wake" value="immediate">
+                            <label for="wake-time-1">Almost immediately</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="wake-time-2" name="time-to-wake" value="15min">
+                            <label for="wake-time-2">15-30 minutes</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="wake-time-3" name="time-to-wake" value="30min">
+                            <label for="wake-time-3">30 minutes to 1 hour</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="wake-time-4" name="time-to-wake" value="1hour">
+                            <label for="wake-time-4">1-2 hours</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="wake-time-5" name="time-to-wake" value="2hours+">
+                            <label for="wake-time-5">More than 2 hours</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q15">
+                    <h3>Do you feel like you're waking up in the middle of a sleep cycle?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="cycle-1" name="sleep-cycle" value="always">
+                            <label for="cycle-1">Almost always</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="cycle-2" name="sleep-cycle" value="often">
+                            <label for="cycle-2">Often</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="cycle-3" name="sleep-cycle" value="sometimes">
+                            <label for="cycle-3">Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="cycle-4" name="sleep-cycle" value="rarely">
+                            <label for="cycle-4">Rarely</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="cycle-5" name="sleep-cycle" value="never">
+                            <label for="cycle-5">Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q16">
+                    <h3>What time do you currently wake up?</h3>
+                    <div class="options">
+                        <input type="time" id="current-wakeup" name="current-wakeup" value="07:00">
+                    </div>
+                </div>
+
+                <div class="question" id="q17">
+                    <h3>Do you wake up naturally or do you need an alarm clock?</h3>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="alarm-1" name="alarm-use" value="always-alarm">
+                            <label for="alarm-1">Always need an alarm</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alarm-2" name="alarm-use" value="usually-alarm">
+                            <label for="alarm-2">Usually need an alarm</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alarm-3" name="alarm-use" value="sometimes">
+                            <label for="alarm-3">Sometimes use an alarm, sometimes wake naturally</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alarm-4" name="alarm-use" value="usually-natural">
+                            <label for="alarm-4">Usually wake up naturally</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="alarm-5" name="alarm-use" value="always-natural">
+                            <label for="alarm-5">Always wake up naturally</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button type="button" id="prev-btn" style="display: none;">Previous</button>
+                <button type="button" id="next-btn">Next</button>
+                <button type="button" id="submit-btn" style="display: none;">Calculate Ideal Wake-Up Time</button>
+            </div>
+        </form>
+        
+        <div class="result-container" id="result-container">
+            <h2>Your Ideal Wake-Up Time</h2>
+            <div class="ideal-time" id="ideal-time">6:30 AM</div>
+            
+            <div class="recommended-bedtime">
+                <h3>Recommended Bedtime:</h3>
+                <div id="bedtime">10:30 PM</div>
+            </div>
+            
+            <div class="explanation" id="explanation">
+                <!-- Explanation will be filled by JavaScript -->
+            </div>
+            
+            <div class="sleep-tips">
+                <h3>Sleep Tips Based on Your Answers:</h3>
+                <ul id="sleep-tips-list">
+                    <!-- Tips will be filled by JavaScript -->
+                </ul>
+            </div>
+            
+            <button type="button" id="restart-btn">Take Quiz Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
